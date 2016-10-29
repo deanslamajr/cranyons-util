@@ -1,0 +1,11 @@
+{
+  "name": "cranyon-uploader",
+  "version": "1.0.0",
+  "description": "CLI to compress, resize, and upload image files to the cranyon s3",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tinify": "^1.3.0"
+  }
+}
