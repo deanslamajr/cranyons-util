@@ -7,16 +7,21 @@ const constants = nconf
   .argv()
   .file(`${__dirname}/constants.json`);
 
+if (!nconf.get('i')) {
+  throw new Error('Must specify input filename flag: -i');
+}
+
 if (!nconf.get('o')) {
   throw new Error('Must specify output filename flag: -o');
 }
 
+const inputFileName = nconf.get('i');
 const outputFileName = nconf.get('o');
 
 tinify.key = constants.get('TINY_API');
 
 // Upload & compress
-compressedImages.hires = tinify.fromFile('image.jpg');
+compressedImages.hires = tinify.fromFile(inputFileName);
 
 // Resize
 compressedImages.pics = compressedImages.hires.resize({
